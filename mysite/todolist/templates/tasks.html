@@ -11,10 +11,15 @@
 <i>{{ user.get_username }} </i>
             <a href="{% url 'logout'%}?next=/" class="btn btn-primary">Atsijungti</a>
 <hr>
-<h1>My Tasks: </h1>
+<h3>Mano Uzduotys: </h3>
+<hr>
 {% for task in tasks %}
 <p> {{ task }} </p>
+<a href="{% url 'update' task.id %}" class="btn btn-secondary btn-sm">Redaguoti</a> <a href="{% url 'delete' task.id %}" class="btn btn-danger btn-sm">Istrinti</a>
+<hr>
 {% endfor %}
+ <a href="{% url 'create' %}" class="btn btn-success btn-sm btn-block">Prideti</a>
+
 
           {% else %}
 <h1>Sveiki atvyke</h1>
